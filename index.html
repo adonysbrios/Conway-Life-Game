@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            color: #ffffffc1;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background-color: #0c0c0c;
+        }
+
+        #content {
+            display: grid;
+            grid-template-columns: repeat(50, 30px);
+            grid-template-rows: repeat(50, 30px);
+            gap: 0;
+            width: 100%;
+            overflow-x: scroll;
+            overflow-y: scroll;
+            height: 100vh;
+        }
+
+        button {
+            background-color: #ffffff00;
+        }
+
+        .filled {
+            background-color: #ffffff58;
+        }
+
+        .cell {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            border: solid 1px #ffffff58;
+        }
+
+        .control {
+            position: fixed;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        section {
+            
+            z-index: 1;
+            width: 300px;
+            background-color: #141414;
+            border: solid 1px #ffffff31;
+            border-radius: 32px;
+            padding: 10px 20px;
+            gap: 5px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        section button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 32px;
+            background-color: #ffffff00;
+            border: solid 1px #ffffff00;
+            transition: .5s;
+        }
+
+        section button:hover{
+            background-color: #ffffff4d;
+            border: solid 1px #ffffff31;
+        }
+
+        a{
+            background-color: #141414;
+            border: 1px solid #ffffff67;
+            z-index: 1;
+            height: 25px;
+            width: 25px;
+            border-radius: 62px;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            align-items: center;
+            transition: 1s;
+        }
+
+        a:hover{
+            background-color: #232323;
+            border: solid 1px #ffffff31;
+        }
+
+        .loading-screen {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-color: #0c0c0cc8;
+            z-index: 1000;
+        }
+
+        .loading-screen h1{
+            text-align: center;
+            width: 250px;
+        }
+
+        .hide {
+            display: none;
+        }
+
+    </style>
+    <title>Konway's</title>
+</head>
+<body>
+    <div class="loading-screen" id="loading-screen">
+        <h1> Wait a few seconds while the grid is being constructed. </h1>
+    </div>
+    <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target="_blank">i</a>
+    <div class="control">
+        <section>
+            <button onclick="clearGrid()">Clear grid</button>
+            <button onclick="setIntervalo()">Play</button>
+            <button onclick="matarIntervalo()">Pause</button>
+        </section>
+    </div>
+    <main id="content">
+    </main>
+
+    <script src="./index.js"></script>
+</body>
+</html>
